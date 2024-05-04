@@ -6,3 +6,4 @@
     - ansible.builtin.import_tasks: tasks/brave.yaml
     - ansible.builtin.import_tasks: tasks/python.yaml
     - ansible.builtin.import_tasks: tasks/rust.yaml
+    - ansible.builtin.import_tasks: tasks/alacritty.yaml
