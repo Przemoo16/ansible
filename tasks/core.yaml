@@ -8,7 +8,6 @@
   become: true
   ansible.builtin.apt:
     name:
-      - build-essential
       - curl
       - git
   tags:

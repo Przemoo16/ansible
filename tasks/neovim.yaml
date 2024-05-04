@@ -2,9 +2,12 @@
   become: true
   ansible.builtin.apt:
     name:
+      - build-essential
       - cmake
+      - curl
       - gettext
       - ninja-build
+      - unzip
   tags:
     - neovim
 - name: Clone Neovim
