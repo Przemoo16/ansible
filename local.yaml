@@ -7,3 +7,4 @@
     - ansible.builtin.import_tasks: tasks/python.yaml
     - ansible.builtin.import_tasks: tasks/rust.yaml
     - ansible.builtin.import_tasks: tasks/alacritty.yaml
+    - ansible.builtin.import_tasks: tasks/i3.yaml
