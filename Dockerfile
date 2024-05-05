@@ -14,6 +14,7 @@ RUN groupadd --gid 1000 przemek \
     && echo przemek ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/przemek
 
 USER przemek
+ENV USER=przemek
 WORKDIR /home/przemek
 
 COPY . .

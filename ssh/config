@@ -1,7 +1,7 @@
 Include /home/przemek/dev/squirro/squirro-bastion/config
 
 Host github.com
-    IdentityFile /home/przemek/.ssh/github
+    IdentityFile /home/przemek/.ssh/personal
 
 Host jenkins.squirro.net
     User przemek

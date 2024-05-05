@@ -1,5 +1,6 @@
 - hosts: localhost
   tasks:
+    - ansible.builtin.import_tasks: tasks/ssh.yaml
     - ansible.builtin.import_tasks: tasks/core.yaml
     - ansible.builtin.import_tasks: tasks/zsh.yaml
     - ansible.builtin.import_tasks: tasks/neovim.yaml
@@ -8,3 +9,4 @@
     - ansible.builtin.import_tasks: tasks/rust.yaml
     - ansible.builtin.import_tasks: tasks/alacritty.yaml
     - ansible.builtin.import_tasks: tasks/i3.yaml
+    - ansible.builtin.import_tasks: tasks/dotfiles.yaml
