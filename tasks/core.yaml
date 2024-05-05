@@ -4,7 +4,7 @@
     update_cache: yes
   tags:
     - always
-- name: Install system packages
+- name: Install core system packages
   become: true
   ansible.builtin.apt:
     name:
