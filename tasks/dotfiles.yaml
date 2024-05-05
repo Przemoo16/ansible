@@ -13,6 +13,6 @@
   tags:
     - dotfiles
 - name: Stow dotfiles
-  shell: cd {{ lookup('env', 'HOME') }}/.dotfiles && ./install.sh
+  ansible.builtin.shell: cd "{{ lookup('env', 'HOME') }}/.dotfiles" && ./install.sh
   tags:
     - dotfiles
