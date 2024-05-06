@@ -1,17 +1,14 @@
-- name: Install Alacritty prerequisites
+- name: Install Alacritty
   become: true
   ansible.builtin.apt:
     name:
-      - cmake
-      - libfontconfig1-dev
-      - libfreetype6-dev
-      - libxcb-xfixes0-dev
-      - libxkbcommon-dev
-      - pkg-config
-      - python3
+      - alacritty
   tags:
     - alacritty
-- name: Install Alacritty
-  ansible.builtin.shell: "{{ lookup('env', 'HOME') }}/.cargo/bin/cargo install alacritty"
+- name: Install picom
+  become: true
+  ansible.builtin.apt:
+    name:
+      - picom
   tags:
     - alacritty
