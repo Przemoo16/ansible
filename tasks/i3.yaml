@@ -4,9 +4,14 @@
     name: i3
   tags:
     - i3
-- name: Install LightDM
+- name: Install i3 related packages
   become: true
   ansible.builtin.apt:
-    name: lightdm
+    name:
+      - alsa-utils
+      - autorandr
+      - brightnessctl
+      - lightdm
+      - maim
   tags:
     - i3
