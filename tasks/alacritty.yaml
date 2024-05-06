@@ -1,14 +1,12 @@
 - name: Install Alacritty
   become: true
   ansible.builtin.apt:
-    name:
-      - alacritty
+    name: alacritty
   tags:
     - alacritty
 - name: Install picom
   become: true
   ansible.builtin.apt:
-    name:
-      - picom
+    name: picom
   tags:
     - alacritty

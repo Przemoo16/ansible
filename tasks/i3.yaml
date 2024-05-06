@@ -1,14 +1,12 @@
 - name: Install i3
   become: true
   ansible.builtin.apt:
-    name:
-      - i3
+    name: i3
   tags:
     - i3
 - name: Install LightDM
   become: true
   ansible.builtin.apt:
-    name:
-      - lightdm
+    name: lightdm
   tags:
     - i3

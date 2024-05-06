@@ -1,7 +1,7 @@
 - name: Ensure .ssh directory exists
   ansible.builtin.file:
-    dest: "{{ lookup('env', 'HOME') }}/.ssh"
-    mode: 0700
+    path: "{{ lookup('env', 'HOME') }}/.ssh"
+    mode: "0700"
     state: directory
   tags:
     - dotfiles
@@ -10,7 +10,7 @@
   ansible.builtin.copy:
     src: "./ssh/personal"
     dest: "{{ lookup('env', 'HOME') }}/.ssh/personal"
-    mode: 0600
+    mode: "0600"
   tags:
     - dotfiles
     - ssh
@@ -18,7 +18,7 @@
   ansible.builtin.copy:
     src: "./ssh/personal.pub"
     dest: "{{ lookup('env', 'HOME') }}/.ssh/personal.pub"
-    mode: 0644
+    mode: "0644"
   tags:
     - dotfiles
     - ssh
@@ -26,14 +26,14 @@
   ansible.builtin.copy:
     src: "./ssh/squirro"
     dest: "{{ lookup('env', 'HOME') }}/.ssh/squirro"
-    mode: 0600
+    mode: "0600"
   tags:
     - ssh
 - name: Install Squirro SSH public key
   ansible.builtin.copy:
     src: "./ssh/squirro.pub"
     dest: "{{ lookup('env', 'HOME') }}/.ssh/squirro.pub"
-    mode: 0644
+    mode: "0644"
   tags:
     - ssh
 - name: Set authorized keys
@@ -49,7 +49,7 @@
   ansible.builtin.copy:
     src: "./ssh/config"
     dest: "{{ lookup('env', 'HOME') }}/.ssh/config"
-    mode: 0600
+    mode: "0600"
   tags:
     - dotfiles
     - ssh

@@ -1,8 +1,7 @@
 - name: Install stow
   become: true
   ansible.builtin.apt:
-    name:
-      - stow
+    name: stow
   tags:
     - dotfiles
 - name: Clone dotfiles

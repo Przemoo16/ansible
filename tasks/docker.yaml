@@ -1,0 +1,55 @@
+- name: Install Docker prerequisites
+  become: true
+  ansible.builtin.apt:
+    name: ca-certificates
+  tags:
+    - docker
+- name: Ensure keyrings directory exists
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    mode: "0755"
+    state: directory
+  tags:
+    - docker
+- name: Download Docker GPG key
+  become: true
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/debian/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: "0644"
+  tags:
+    - docker
+- name: Add Docker repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+    filename: docker
+  tags:
+    - docker
+- name: Install Docker
+  become: true
+  ansible.builtin.apt:
+    name:
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-ce
+      - docker-ce-cli
+      - docker-compose-plugin
+    update_cache: yes
+  tags:
+    - docker
+- name: Ensure the docker group exists
+  become: true
+  ansible.builtin.group:
+    name: docker
+    state: present
+  tags:
+    - docker
+- name: Add the current user to the docker group
+  become: true
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: docker
+    append: true
+  tags:
+    - docker
