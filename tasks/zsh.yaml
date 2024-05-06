@@ -9,15 +9,10 @@
   ansible.builtin.shell: chsh -s $(which zsh)
   tags:
     - zsh
-- name: Check if Oh My Zsh is already installed
-  ansible.builtin.stat:
-    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
-  register: oh_my_zsh_stats
-  tags:
-    - zsh
 - name: Install Oh My Zsh
   ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
-  when: not oh_my_zsh_stats.stat.exists
+  args:
+    creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
   tags:
     - zsh
 - name: Install zsh-autosuggestions plugin

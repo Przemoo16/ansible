@@ -1,11 +1,6 @@
-- name: Check if pyenv is already installed
-  ansible.builtin.stat:
-    path: "{{ lookup('env', 'HOME') }}/.pyenv"
-  register: pyenv_stats
-  tags:
-    - python
 - name: Install pyenv
   ansible.builtin.shell: curl https://pyenv.run | bash
-  when: not pyenv_stats.stat.exists
+  args:
+    creates: "{{ lookup('env', 'HOME') }}/.pyenv"
   tags:
     - python

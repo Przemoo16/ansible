@@ -5,9 +5,11 @@
     dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
   tags:
     - brave
-- name: Set up Brave repository
+- name: Add Brave repository
   become: true
-  ansible.builtin.shell: echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
+    filename: brave-browser-release
   tags:
     - brave
 - name: Install Brave

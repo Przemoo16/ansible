@@ -17,11 +17,15 @@
   tags:
     - neovim
 - name: Build Neovim
-  ansible.builtin.shell: cd "{{ lookup('env', 'HOME') }}/neovim" && make CMAKE_BUILD_TYPE=Release
+  ansible.builtin.shell: make CMAKE_BUILD_TYPE=Release
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/neovim"
   tags:
     - neovim
 - name: Install Neovim
   become: true
-  ansible.builtin.shell: cd "{{ lookup('env', 'HOME') }}/neovim" && make install
+  ansible.builtin.shell: make install
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/neovim"
   tags:
     - neovim

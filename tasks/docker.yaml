@@ -38,7 +38,7 @@
     update_cache: yes
   tags:
     - docker
-- name: Ensure the docker group exists
+- name: Ensure docker group exists
   become: true
   ansible.builtin.group:
     name: docker
