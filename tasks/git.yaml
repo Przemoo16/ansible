@@ -1,0 +1,21 @@
+- name: Set up git editor
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: vim
+  tags:
+    - git
+- name: Set up git name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: Przemek Kanach
+  tags:
+    - git
+- name: Set up git email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: kanach16@gmail.com
+  tags:
+    - git

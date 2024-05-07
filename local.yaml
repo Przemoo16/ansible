@@ -4,6 +4,7 @@
     - ansible.builtin.import_tasks: tasks/core.yaml
     - ansible.builtin.import_tasks: tasks/dotfiles.yaml
     - ansible.builtin.import_tasks: tasks/zsh.yaml
+    - ansible.builtin.import_tasks: tasks/git.yaml
     - ansible.builtin.import_tasks: tasks/node.yaml
     - ansible.builtin.import_tasks: tasks/python.yaml
     - ansible.builtin.import_tasks: tasks/rust.yaml
