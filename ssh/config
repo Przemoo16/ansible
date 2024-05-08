@@ -1,4 +1,4 @@
-Include /home/przemek/dev/squirro/squirro-bastion/config
+Include /home/przemek/work/squirro-bastion/config
 
 Host github.com
     IdentityFile /home/przemek/.ssh/personal
