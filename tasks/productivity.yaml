@@ -2,7 +2,6 @@
   become: true
   ansible.builtin.apt:
     name:
-      - fzf
       - tmux
   tags:
     - productivity

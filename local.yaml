@@ -7,6 +7,7 @@
     - ansible.builtin.import_tasks: tasks/alacritty.yaml
     - ansible.builtin.import_tasks: tasks/brave.yaml
     - ansible.builtin.import_tasks: tasks/docker.yaml
+    - ansible.builtin.import_tasks: tasks/fzf.yaml
     - ansible.builtin.import_tasks: tasks/git.yaml
     - ansible.builtin.import_tasks: tasks/i3.yaml
     - ansible.builtin.import_tasks: tasks/neovim.yaml

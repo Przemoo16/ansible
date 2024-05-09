@@ -1,0 +1,13 @@
+- name: Clone fzf
+  ansible.builtin.git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ lookup('env', 'HOME') }}/.fzf"
+    depth: 1
+  tags:
+    - fzf
+- name: Install fzf
+  ansible.builtin.shell: ./install --all --no-bash --no-fish
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/.fzf"
+  tags:
+    - fzf
