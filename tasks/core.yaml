@@ -1,6 +1,7 @@
-- name: Update repositories cache
+- name: Upgrade packages and update repositories cache
   become: true
   ansible.builtin.apt:
+    upgrade: dist
     update_cache: yes
   tags:
     - always
