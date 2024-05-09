@@ -7,6 +7,6 @@
 - name: Install LTS version of Node.js
   ansible.builtin.shell: source "{{ lookup('env', 'HOME') }}/.nvm/nvm.sh" && nvm install --lts
   args:
-    executable: /bin/bash
+    executable: /usr/bin/env bash
   tags:
     - node
