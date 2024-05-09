@@ -1,0 +1,12 @@
+- name: Ensure personal directory exists
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/personal"
+    state: directory
+  tags:
+    - repos
+- name: Ensure work directory exists
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/work"
+    state: directory
+  tags:
+    - repos

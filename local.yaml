@@ -13,5 +13,6 @@
     - ansible.builtin.import_tasks: tasks/node.yaml
     - ansible.builtin.import_tasks: tasks/productivity.yaml
     - ansible.builtin.import_tasks: tasks/python.yaml
+    - ansible.builtin.import_tasks: tasks/repos.yaml
     - ansible.builtin.import_tasks: tasks/rust.yaml
     - ansible.builtin.import_tasks: tasks/zsh.yaml
