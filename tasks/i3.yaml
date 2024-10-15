@@ -11,8 +11,8 @@
       - alsa-utils
       - autorandr
       - brightnessctl
+      - feh
       - lightdm
       - maim
-      - nitrogen
   tags:
     - i3
