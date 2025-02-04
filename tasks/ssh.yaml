@@ -22,20 +22,6 @@
   tags:
     - dotfiles
     - ssh
-- name: Install Squirro SSH private key
-  ansible.builtin.copy:
-    src: "./ssh/squirro"
-    dest: "{{ lookup('env', 'HOME') }}/.ssh/squirro"
-    mode: "0600"
-  tags:
-    - ssh
-- name: Install Squirro SSH public key
-  ansible.builtin.copy:
-    src: "./ssh/squirro.pub"
-    dest: "{{ lookup('env', 'HOME') }}/.ssh/squirro.pub"
-    mode: "0644"
-  tags:
-    - ssh
 - name: Set authorized keys
   ansible.posix.authorized_key:
     user: "{{ lookup('env', 'USER') }}"

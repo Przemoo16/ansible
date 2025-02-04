@@ -1,19 +1,9 @@
-Include /home/przemek/work/squirro-bastion/config
-
 Host github.com
     IdentityFile /home/przemek/.ssh/personal
 
-Host jenkins.squirro.net
-    User przemek
-
-Host gpu-test
-    User przemo
-	Hostname 3.122.237.136
-    ProxyCommand ssh -xaqW%h:22 squirro-bastion
-
 Host *
     IdentitiesOnly yes
-    IdentityFile /home/przemek/.ssh/squirro
+    IdentityFile /home/przemek/.ssh/personal
     IgnoreUnknown UseKeychain
     UseKeychain yes
     AddKeysToAgent yes
