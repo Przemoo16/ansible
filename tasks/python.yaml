@@ -1,6 +1,6 @@
-- name: Install pyenv
-  ansible.builtin.shell: curl https://pyenv.run | bash
+- name: Install uv
+  ansible.builtin.shell: curl -LsSf https://astral.sh/uv/install.sh | sh
   args:
-    creates: "{{ lookup('env', 'HOME') }}/.pyenv"
+    creates: "{{ lookup('env', 'HOME') }}/.local/bin/uv"
   tags:
     - python
