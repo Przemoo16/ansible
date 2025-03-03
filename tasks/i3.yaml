@@ -12,5 +12,6 @@
       - feh
       - lightdm
       - maim
+      - picom
   tags:
     - i3
