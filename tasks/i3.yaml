@@ -9,6 +9,7 @@
   ansible.builtin.apt:
     name:
       - brightnessctl
+      - feh
       - lightdm
       - maim
   tags:
