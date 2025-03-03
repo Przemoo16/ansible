@@ -2,6 +2,7 @@
   become: true
   ansible.builtin.apt:
     name:
+      - ripgrep # Required by telescope
       - tmux
       - xclip
   tags:

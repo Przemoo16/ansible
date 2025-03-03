@@ -8,10 +8,7 @@
   become: true
   ansible.builtin.apt:
     name:
-      - alsa-utils
-      - autorandr
       - brightnessctl
-      - feh
       - lightdm
       - maim
   tags:
