@@ -2,7 +2,7 @@
   community.general.git_config:
     name: core.editor
     scope: global
-    value: vim
+    value: nvim
   tags:
     - git
 - name: Set up git name
