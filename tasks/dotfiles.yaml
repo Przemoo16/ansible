@@ -12,7 +12,7 @@
   tags:
     - dotfiles
 - name: Stow dotfiles
-  ansible.builtin.shell: ./install
+  ansible.builtin.command: ./install
   args:
     chdir: "{{ lookup('env', 'HOME') }}/.dotfiles"
   tags:

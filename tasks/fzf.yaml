@@ -6,7 +6,7 @@
   tags:
     - fzf
 - name: Install fzf
-  ansible.builtin.shell: ./install --all --no-bash --no-fish
+  ansible.builtin.command: ./install --all --no-bash --no-fish
   args:
     chdir: "{{ lookup('env', 'HOME') }}/.fzf"
   tags:
