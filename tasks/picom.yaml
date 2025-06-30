@@ -1,0 +1,56 @@
+- name: Install picom prerequisites
+  become: true
+  ansible.builtin.apt:
+    name:
+      - libconfig-dev
+      - libdbus-1-dev
+      - libegl-dev
+      - libev-dev
+      - libgl-dev
+      - libepoxy-dev
+      - libpcre2-dev
+      - libpixman-1-dev
+      - libx11-xcb-dev
+      - libxcb1-dev
+      - libxcb-composite0-dev
+      - libxcb-damage0-dev
+      - libxcb-glx0-dev
+      - libxcb-image0-dev
+      - libxcb-present-dev
+      - libxcb-randr0-dev
+      - libxcb-render0-dev
+      - libxcb-render-util0-dev
+      - libxcb-shape0-dev
+      - libxcb-util-dev
+      - libxcb-xfixes0-dev
+      - meson
+      - ninja-build
+      - uthash-dev
+  tags:
+    - picom
+- name: Clone picom
+  ansible.builtin.git:
+    repo: https://github.com/yshui/picom.git
+    dest: "{{ lookup('env', 'HOME') }}/picom"
+    depth: 1
+  tags:
+    - picom
+- name: Configure picom built
+  ansible.builtin.command: meson setup --buildtype=release build
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/picom"
+  tags:
+    - picom
+- name: Build picom
+  ansible.builtin.command: ninja -C build
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/picom"
+  tags:
+    - picom
+- name: Install picom
+  become: true
+  ansible.builtin.command: ninja -C build install
+  args:
+    chdir: "{{ lookup('env', 'HOME') }}/picom"
+  tags:
+    - picom
